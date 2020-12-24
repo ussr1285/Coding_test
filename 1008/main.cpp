@@ -1,6 +1,8 @@
 #include <iostream>
-#include <cmath>
+#include <string>
 using namespace std;
+
+#define MAX 32 //9
 
 int main()
 {
@@ -9,7 +11,7 @@ int main()
     int quotient;
     int remainder;
     int decimalPoint = 0;
-    float result = 0;
+    string result = "";
 
     cin >> A;
     cin >> B;
@@ -23,7 +25,7 @@ int main()
 
         if (remainder == 0)
         {
-            result += quotient * pow(10, -decimalPoint);
+            result.append(to_string(quotient));
             break;
         }
         else
@@ -31,16 +33,17 @@ int main()
             if (decimalPoint == 0)
             {
                 //cout << "result: " << result << "\n";
+                result.append("0.");
                 A = A * 10;
                 continue;
             }
 
-            result += quotient * pow(10, -decimalPoint);
-            cout << "result: " << result << "\n";
+            result.append(to_string(quotient));
+            //cout << "result: " << result << "\n";
             A = remainder * 10;
         }
 
-    } while (decimalPoint++ < 9);
+    } while (decimalPoint++ < MAX);
 
     cout << result;
 
