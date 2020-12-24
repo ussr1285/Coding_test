@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-    int A = 0;
-    int B = 0;
+    double A = 0;
+    double B = 0;
     int quotient;
     int remainder;
     int decimalPoint = 0;
@@ -16,36 +16,8 @@ int main()
     cin >> A;
     cin >> B;
 
-    do
-    {
-        //cout << "----- " << decimalPoint << " -----\n";
-        //cout << A << " vs " << B << "\n";
-        quotient = A / B;
-        remainder = A % B;
-
-        if (remainder == 0)
-        {
-            result.append(to_string(quotient));
-            break;
-        }
-        else
-        {
-            if (decimalPoint == 0)
-            {
-                //cout << "result: " << result << "\n";
-                result.append("0.");
-                A = A * 10;
-                continue;
-            }
-
-            result.append(to_string(quotient));
-            //cout << "result: " << result << "\n";
-            A = remainder * 10;
-        }
-
-    } while (decimalPoint++ < MAX);
-
-    cout << result;
+    cout.precision(MAX);
+    cout << A / B;
 
     return 0;
 }
