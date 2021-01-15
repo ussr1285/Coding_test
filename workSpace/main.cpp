@@ -3,41 +3,51 @@ using namespace std;
 
 int main()
 {
-    int N = 0;
-    int cnt = 0;
-    int tens = 0;
-    int units = 0;
-    int temptens = 0;
-    int tempunits = 0;
-    int temp = 0;
+    int inputArr[3] = {0};
+    int total = 1;
+    int unit = 1;
+    int divided = 0;
+    int n = 0;
+    int cntUnit[10] = {0};
 
-    cin >> N;
-
-    if (N < 10)
+    for (int i = 0; i < 3; i++)
     {
-        tens = 0;  
-    }else{
-        tens = N / 10;
+        cin >> inputArr[i];
+        total *= inputArr[i];
     }
-    units = N % 10;
-
-    temptens = tens;
-    tempunits = units;
+    cout << "I am total : " << total << "\n";
 
     while (true)
     {
-        cnt++;
-        temp = tempunits;
-        tempunits = (temptens + tempunits) % 10;
-        temptens = temp;
-
-        if (temptens == tens && tempunits == units)
+        divided = total / unit;
+        if (divided == 0)
         {
+            unit /= 10;
+            n--;
             break;
         }
+        unit *= 10;
+        n++;
     }
 
-    cout << cnt;
+    for (int i = 0; i <= n; i++)
+    {
+        if(i == 0){
+            divided = total / unit;
+            cout << "I'm 1st: " << divided << "\n";
+        }
+        else{
+            divided = (total % (unit*10)) / unit;
+            cout << "I'm " << i+1 << "st , " << divided << " \n";
+        }
+        
+        cntUnit[divided] += 1;
+        unit /= 10;
+    }
+
+    for(int i = 0; i <= 9; i++){
+        cout << cntUnit[i] << "\n";
+    }
 
     return 0;
-} 
+}
