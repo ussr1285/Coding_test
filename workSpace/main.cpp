@@ -15,7 +15,7 @@ int main()
         cin >> inputArr[i];
         total *= inputArr[i];
     }
-    cout << "I am total : " << total << "\n";
+    //cout << "I am total : " << total << "\n";
 
     while (true)
     {
@@ -34,11 +34,11 @@ int main()
     {
         if(i == 0){
             divided = total / unit;
-            cout << "I'm 1st: " << divided << "\n";
+            //cout << "I'm 1st: " << divided << "\n";
         }
         else{
             divided = (total % (unit*10)) / unit;
-            cout << "I'm " << i+1 << "st , " << divided << " \n";
+            //cout << "I'm " << i+1 << "st , " << divided << " \n";
         }
         
         cntUnit[divided] += 1;
