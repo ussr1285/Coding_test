@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -10,5 +11,6 @@ string solution(vector<string> participant, vector<string> completion) {
 
 int main(){
     
+    cout << solution() << "\n";
     return 0;
 }
