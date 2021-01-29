@@ -1,22 +1,10 @@
-def solution(X_list):
-    maximum_group = 0
-    i = 0
-    cnt = 0
-
-    X_list.sort()
-
-    for i in range(len(X_list)):
-        cnt += 1
-        if X_list[i] <= cnt:
-            maximum_group += 1
-            cnt = 0
-
-    return maximum_group
+def a(n):
+    return sum(n)
 
 
 def main():
-    X_list = list(map(int, input().split(" ")))
-    print(solution(X_list))
+    n = list(map(int, input().split(" ")))
+    print(a(n))
 
 
 if __name__ == "__main__":
