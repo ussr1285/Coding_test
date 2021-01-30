@@ -1,17 +1,16 @@
 def func(S):
     chara = []
-    numbers = []
+    sum_numbers = 0
 
     for s in S:
         if s.isdecimal():
-            numbers.append(int(s))
+            sum_numbers += int(s)
         else:
             chara.append(ord(s))
 
-    numbers.sort()
     chara.sort()
 
-    return "".join(map(chr, chara)) + "".join(list(map(str, numbers)))
+    return "".join(map(chr, chara)) + str(sum_numbers)
 
 
 def main():
