@@ -1,22 +1,30 @@
-def func(S):
-    chara = []
-    numbers = []
+# from collections import deque
+"""
+class Node:
+    def __init__(self, data, row_i, col_i):
+        self.data = data
+        self.row_i = row_i
+        self.col_i = col_i
+"""
 
-    for s in S:
-        if s.isdecimal():
-            numbers.append(int(s))
-        else:
-            chara.append(ord(s))
 
-    numbers.sort()
-    chara.sort()
+def available_amount_icecream(rows):
+    amount_icecream = 0
 
-    return "".join(map(chr, chara)) + "".join(list(map(str, numbers)))
+    return amount_icecream
 
 
 def main():
-    S = input()
-    print(func(S))
+    input_NM = input().split(" ")
+    N = int(input_NM[0])  # amount of columns
+    M = int(input_NM[1])  # amount of rows
+
+    rows = []
+
+    for _ in range(N):
+        row = input()
+        row = row[0:M]
+        rows.append(row)
 
 
 if __name__ == "__main__":
