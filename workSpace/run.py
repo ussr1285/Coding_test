@@ -1,36 +1,23 @@
-if __name__ == "__main__":
-    S = input()
-    alphabets = [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-    ]
+def repeat(r, s):
+    string_arr = []
+    for word in s:
+        for _ in range(r):
+            string_arr.append(word)
 
-for alphabet in alphabets:
-    if alphabet in S:
-        print(S.index(alphabet), end=" ")
-    else:
-        print(-1, end=" ")
+    string = "".join(string_arr)
+
+    return string
+
+
+if __name__ == "__main__":
+    T = int(input())
+    R = []
+    S = []
+
+    for _ in range(T):
+        r, s = input().split(" ")
+        R.append(int(r))
+        S.append(s)
+
+    for i in range(T):
+        print(repeat(R[i], S[i]))
