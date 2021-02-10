@@ -31,10 +31,6 @@ def minimum_escape_maze():  # Use N, M, maze
 
         visited[i][j] = True
 
-        print("test----")
-        for t in maze:
-            print(t)
-
     return maze[N - 1][M - 1]
 
 
