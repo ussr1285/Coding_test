@@ -6,6 +6,7 @@
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
 void manachers(char *S, int *A){
+   int cnt = 0;
    int r = 0, p = 0;
    int N = strlen(S);
 
@@ -25,46 +26,47 @@ void manachers(char *S, int *A){
    }
 }
 
+/*
+int addChar(char *buffer, char *S, int len){
+   S = malloc(len * 2);
 
-void addChar(char *buffer, char *S, int *len){
-   S = malloc(*len * 2);
+   printf("len: %d\n", len);
 
-   printf("%d", *len);
-
-   for (int i = 0; i < *len; i++){
+   for (int i = 0; i < len - 1; i++){
       S[2 * i] = buffer[i]; // 2n + 1 <- n;
       S[2 * i + 1] = '#'; // 2n <- #
    }
-   *len = strlen(S);
-   printf("%s", S);
+   len = strlen(S);
+   printf("new str: %s\n", S);
+   return len;
 }
-
+*/
 
 int main(){
    char buffer[10001];
-   int *len;
+   int len;
    char *S;
    int *A;
 
    scanf("%s", buffer);
 
-   *len = strlen(buffer);
+   len = strlen(buffer);
 
-   S = malloc(*len + 1);
-   strncpy(S, buffer, *len);
+   S = malloc(len + 1);
+   strncpy(S, buffer, len);
 
 // 이건 특수문자 추가한 것
-   addChar(buffer, S, len);
+   //len = addChar(buffer, S, len);
 
    A = malloc(strlen(S) * sizeof(int));
 
    manachers(S, A);
 
    int ans = -1;
-   for (int i = 0; i < *len; i++)
-   ans = max(ans, A[i]);
+   for (int i = 0; i < len; i++)
+      ans = max(ans, A[i]);
 
-   for(int i = 0; i < *len; i++){
+   for(int i = 0; i < len; i++){
       printf("%d ", A[i]);
    }
 
