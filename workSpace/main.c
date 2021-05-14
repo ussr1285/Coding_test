@@ -25,49 +25,50 @@ void manachers(char *S, int *A){
    }
 }
 
-/*
+
 void addChar(char *buffer, char *S, int *len){
    S = malloc(*len * 2);
 
-   for (int i = 0; i < *len; i++){
-      // 2n + 1 <- n;
-      // 2n <- #
+   printf("%d", *len);
 
-      S[2 * i] = buffer[i];
-      S[2 * i + 1] = '#';
+   for (int i = 0; i < *len; i++){
+      S[2 * i] = buffer[i]; // 2n + 1 <- n;
+      S[2 * i + 1] = '#'; // 2n <- #
    }
+   *len = strlen(S);
+   printf("%s", S);
 }
-*/
+
 
 int main(){
    char buffer[10001];
-   int len;
+   int *len;
    char *S;
    int *A;
 
    scanf("%s", buffer);
 
-   len = strlen(buffer);
+   *len = strlen(buffer);
 
-   S = malloc(len + 1);
-   strncpy(S, buffer, len);
+   S = malloc(*len + 1);
+   strncpy(S, buffer, *len);
 
 // 이건 특수문자 추가한 것
-   //addChar(buffer, S, len);
+   addChar(buffer, S, len);
 
    A = malloc(strlen(S) * sizeof(int));
 
    manachers(S, A);
 
-   // int ans = -1;
-   // for (int i = 0; i < len; i++)
-   //   ans = max(ans, A[i]);
+   int ans = -1;
+   for (int i = 0; i < *len; i++)
+   ans = max(ans, A[i]);
 
-   for(int i = 0; i < len; i++){
+   for(int i = 0; i < *len; i++){
       printf("%d ", A[i]);
    }
 
-   // printf("\n%d ", ans);
+   printf("\n%d ", ans);
 
    return 0;
 }
