@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "xstring": "c",
+        "initializer_list": "c",
+        "type_traits": "c",
+        "vector": "c",
+        "xutility": "c"
+    }
+}
