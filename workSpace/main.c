@@ -1,36 +1,68 @@
 #include<stdio.h>
+#include<string.h>
+#define MAX_STR_SIZE 100
+#define MAX_SIZE_DB 100
+#define TRUE 1
+#define FALSE 0
 
-int main()
-{
-   int i,j,num;
-   scanf("%d",&num);
-   for(i=0; i<num; i++)
-   {
-      for (j=num; j>i+1; j--)
-      {
-         printf(" ");
-      }   
+
+typedef struct customer{
+   char name;
+   char phoneNumber;
+   char purchaseAmount;
+   enum tagfield {consumer, seller} customerType;
+
+   union {
+      int minimumConsumer;
+      int highestConsumer;
+      int averageConsumerAmount;
+
+      int lowestSellers;
+      int topSellers;
+      int averageSellerAmount;
+   } type;
    
-     for(j=0; j<((i+1)*2-1); j++) 
-      {
-            printf("*");
+};
+
+int getMinimumConsumer(){
+
+}
+
+int getHighestConsumer(){
+
+}
+
+int averageConsumerAmount(){
+
+}
+
+int getLowestSeller(){
+	
+}
+
+int getTopSeller(){
+	
+}
+
+int getAverageSellerAmount(){
+	
+}
+
+
+int main(){
+   char* customerArr = malloc((sizeof(char)*MAX_STR_SIZE)*MAX_SIZE_DB);
+   
+   printf("Please enter your customer information (<Name> <Customer Type> <Phone Number> <Amount>):\n");
+   
+   while(TRUE){
+      char tempStr[MAX_STR_SIZE];
+      scanf("%s", tempStr);
+      if(strcmp("--", tempStr) == 0){
+         break;
       }
-
-      for (j=num; j>i+1; j--)
-      {
-         printf("  ");
-      }   
-   
-     for(j=0; j<((i+1)*2-1); j++) 
-      {
-            printf("*");
-      }
-   printf("\n");
-   
+   };
 
    
-   
-   }
 
    return 0;
 }
