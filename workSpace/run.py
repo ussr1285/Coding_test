@@ -1,2 +1,3 @@
-A, B = list(map(int, input().split(" ")))
+N, M = list(map(int, input().split(" ")))
+
 
